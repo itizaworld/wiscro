@@ -11,5 +11,8 @@
   ],
   "scripts": {
     "dev:front": "yarn workspace @wiscro/front dev"
+  },
+  "devDependencies": {
+    "typescript": "^4.8.3"
   }
 }

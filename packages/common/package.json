@@ -1,5 +1,10 @@
 {
-  "name": "@projects/common",
+  "private": true,
+  "name": "@wiscro/common",
   "version": "1.0.0",
-  "main": "index.ts"
+  "main": "src/index.ts",
+  "peerDependencies": {
+    "react": "*",
+    "typescript": "*"
+  }
 }

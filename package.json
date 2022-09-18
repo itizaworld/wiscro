@@ -11,6 +11,7 @@
   ],
   "scripts": {
     "dev:front": "yarn workspace @wiscro/front dev",
+    "build:front": "yarn workspace @wiscro/front build",
     "lint": "eslint \"./**/*.{js,jsx,ts,tsx}\""
   },
   "devDependencies": {

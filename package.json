@@ -13,6 +13,7 @@
     "dev": "run-p dev:*",
     "dev:front": "yarn workspace @wiscro/front dev",
     "dev:admin": "yarn workspace @wiscro/admin dev",
+    "dev:server": "yarn workspace @wiscro/server start:dev",
     "build:front": "yarn workspace @wiscro/admin build",
     "build:admin": "yarn workspace @wiscro/front build",
     "start:front": "yarn workspace @wiscro/front start",

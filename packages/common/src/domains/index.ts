@@ -1,1 +1,1 @@
-export const hoge = 'hoge';
+export { hoge } from './common';

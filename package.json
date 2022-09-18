@@ -1,9 +1,12 @@
 {
   "name": "wiscro",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "main": "index.js",
   "repository": "https://github.com/itizawa/wiscro.git",
   "author": "itizawa <itizawa.pen@gmail.com>",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ]
 }

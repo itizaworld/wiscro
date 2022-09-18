@@ -9,9 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@wiscro/common": "*",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "@wiscro/common": "*"
   },
   "devDependencies": {
     "@types/node": "18.7.18",

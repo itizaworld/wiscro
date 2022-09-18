@@ -1,1 +1,1 @@
-export { hoge } from './common';
+export * from './common';

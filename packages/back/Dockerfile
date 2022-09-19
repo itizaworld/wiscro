@@ -15,7 +15,7 @@ ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
 WORKDIR /app
 COPY package.json ./
-COPY yarn.lock ./
+# COPY yarn.lock ./
 # NODE_ENV=productionにしてyarn install(npm install)するとdevDependenciesがインストールされません
 RUN yarn install
 COPY --from=builder /app/dist ./dist

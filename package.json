@@ -17,8 +17,10 @@
     "build": "run-p build:*",
     "build:front": "yarn workspace @wiscro/admin build",
     "build:admin": "yarn workspace @wiscro/front build",
+    "build:back": "yarn workspace @wiscro/back build",
     "start:front": "yarn workspace @wiscro/front start",
     "start:admin": "yarn workspace @wiscro/admin start",
+    "start:back": "yarn workspace @wiscro/back start",
     "lint": "eslint \"./**/*.{js,jsx,ts,tsx}\""
   },
   "devDependencies": {
@@ -40,10 +42,17 @@
     "typescript": "4.8.3"
   },
   "dependencies": {
+    "@nestjs/cli": "^9.1.3",
+    "@nestjs/schematics": "8.0.11",
+    "@nestjs/testing": "8.4.7",
+    "@nestjs/common": "8.4.7",
+    "@nestjs/core": "8.4.7",
     "@nextui-org/react": "1.0.0-beta.10",
+    "axios": "^0.27.2",
     "next": "12.3.0",
     "next-transpile-modules": "9.0.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "swr": "^1.3.0"
   }
 }

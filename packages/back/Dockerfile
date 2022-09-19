@@ -4,7 +4,7 @@ FROM node:18 AS builder
 ENV NODE_ENV=development
 WORKDIR /app
 COPY package.json ./
-COPY yarn.lock ./
+# COPY yarn.lock ./
 RUN yarn install
 COPY . .
 RUN yarn build

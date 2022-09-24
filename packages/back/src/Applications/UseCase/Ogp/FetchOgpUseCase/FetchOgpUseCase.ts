@@ -1,5 +1,5 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
-import { IOgpAdapter } from 'src/Adapters/Ogp';
+import { IOgpAdapter } from 'src/Infrastructures/Adapters/Ogp';
 
 @Injectable()
 export class FetchOgpUseCase {

@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { OgpAdapter, IOgpAdapter } from 'src/Adapters/Ogp';
+import { OgpAdapter, IOgpAdapter } from 'src/Infrastructures/Adapters/Ogp';
 import { OgpController } from 'src/Presentations/Controllers';
 import { FetchOgpUseCase } from 'src/Applications/UseCase/Ogp';
 

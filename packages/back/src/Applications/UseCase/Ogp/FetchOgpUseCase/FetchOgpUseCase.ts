@@ -10,8 +10,6 @@ export class FetchOgpUseCase {
    */
   async execute(url: string): Promise<{ [key: string]: string }> {
     try {
-      console.log(url);
-
       return await this.ogpAdapter.fetch(url);
     } catch (error) {
       throw new HttpException(

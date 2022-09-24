@@ -7,11 +7,7 @@ export class OgpController {
   constructor(private readonly fetchOgpUseCase: FetchOgpUseCase) {}
 
   @Get('/')
-  async get(@Query() query: FetchOgpDto): Promise<string> {
-    console.log(query.url);
-
-    await this.fetchOgpUseCase.execute(query.url);
-    console.log('hoge');
-    return 'hoge';
+  async get(@Query() query: FetchOgpDto): Promise<Record<string, string>> {
+    return await this.fetchOgpUseCase.execute(query.url);
   }
 }

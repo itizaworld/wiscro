@@ -1,0 +1,1 @@
+export { OgpController } from './OgpController';

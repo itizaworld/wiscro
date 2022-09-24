@@ -1,5 +1,6 @@
-import * as request from 'superagent';
 import { IOgpAdapter } from './IOgpAdapter';
+import { JSDOM } from 'jsdom';
+import axios from 'axios';
 
 export class OgpAdapter implements IOgpAdapter {
   async fetch(url: string): Promise<{
@@ -9,18 +10,26 @@ export class OgpAdapter implements IOgpAdapter {
     description?: string;
     siteName?: string;
   }> {
-    const result = await request(url);
-    console.log(result);
+    const response = await axios.get(url);
+    const dom = new JSDOM(response.data);
+    const meta = dom.window.document.querySelectorAll('head > meta');
 
-    return {};
-    // const $ = cheerio.load(result.text);
+    return (
+      Array.from(meta)
+        //metaタグの内、property属性を持つのがOGP情報である
+        .filter((element) => element.hasAttribute('property'))
+        .reduce((pre: Record<string, string | null>, ogp) => {
+          const attr = ogp.getAttribute('property');
+          const content = ogp.getAttribute('content');
 
-    // return {
-    //   url,
-    //   image: $("meta[property='og:image']").attr('content'),
-    //   description: $("meta[property='og:description']").attr('content'),
-    //   title: $("meta[property='og:title']").attr('content'),
-    //   siteName: $("meta[property='og:site_name']").attr('content'),
-    // };
+          if (!attr) return pre;
+          const property = attr.trim().replace('og:', '');
+
+          if (!property) return pre;
+
+          pre[property] = content;
+          return pre;
+        }, {})
+    );
   }
 }

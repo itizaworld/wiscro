@@ -1,6 +1,6 @@
 import { Controller, Get, Query } from '@nestjs/common';
 import { FetchOgpDto } from 'src/Presentations/Dto/Ogp/FetchOgpDto';
-import { FetchOgpUseCase } from 'src/UseCase/Ogp';
+import { FetchOgpUseCase } from 'src/Applications/UseCase/Ogp';
 
 @Controller('ogps')
 export class OgpController {

@@ -10,7 +10,7 @@ COPY . .
 RUN yarn build
 
 
-FROM node:17-stretch-slim AS runner
+FROM node:18 AS runner
 ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
 WORKDIR /app

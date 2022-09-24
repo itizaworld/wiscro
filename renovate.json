@@ -15,5 +15,5 @@
   "patch": {
     "stabilityDays": 5
   },
-  "separateMinorPatch": true,
+  "separateMinorPatch": true
 }

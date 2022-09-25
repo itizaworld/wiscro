@@ -21,7 +21,6 @@ export class OgpAdapter implements IOgpAdapter {
         const content = element.getAttribute('content');
 
         if (!attr || !content) return;
-        console.log(attr, content);
 
         switch (attr) {
           case 'og:site_name':

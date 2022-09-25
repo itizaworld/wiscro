@@ -15,4 +15,5 @@ WORKDIR /app
 COPY . .
 # NODE_ENV=productionにしてyarn install(npm install)するとdevDependenciesがインストールされません
 RUN yarn install
+RUN yarn build:back
 CMD ["yarn", "start:back"]

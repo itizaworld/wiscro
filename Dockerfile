@@ -3,9 +3,7 @@ FROM node:18 AS builder
 # ビルドには devDependencies もインストールする必要があるため
 ENV NODE_ENV=development
 WORKDIR /app
-COPY package.json ./
 COPY . .
-COPY yarn.lock ./
 RUN yarn install
 RUN yarn build:back
 
@@ -18,6 +16,5 @@ COPY package.json ./
 COPY yarn.lock ./
 # NODE_ENV=productionにしてyarn install(npm install)するとdevDependenciesがインストールされません
 RUN yarn install
-COPY . .
 COPY --from=builder /app/dist ./dist
 CMD ["yarn", "start:back"]

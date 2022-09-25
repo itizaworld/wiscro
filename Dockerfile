@@ -3,7 +3,7 @@ FROM node:18 AS builder
 # ビルドには devDependencies もインストールする必要があるため
 ENV NODE_ENV=development
 WORKDIR /app
-COPY package.json ./
+COPY ./packages/back/package.json ./
 COPY yarn.lock ./
 RUN yarn install
 COPY . .

@@ -16,5 +16,4 @@ COPY package.json ./
 COPY yarn.lock ./
 # NODE_ENV=productionにしてyarn install(npm install)するとdevDependenciesがインストールされません
 RUN yarn install
-COPY --from=builder /app/dist ./dist
 CMD ["yarn", "start:back"]

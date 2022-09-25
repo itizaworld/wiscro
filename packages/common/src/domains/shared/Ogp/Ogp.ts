@@ -1,6 +1,5 @@
 export class Ogp {
   readonly url: string;
-  readonly favicon?: string;
   readonly title?: string;
   readonly image?: string;
   readonly description?: string;
@@ -8,7 +7,6 @@ export class Ogp {
 
   constructor(init: Ogp) {
     this.url = init.url;
-    this.favicon = init.favicon;
     this.title = init.title;
     this.image = init.image;
     this.description = init.description;

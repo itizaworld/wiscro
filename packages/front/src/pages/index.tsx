@@ -1,7 +1,8 @@
-import { Input, Spacer } from '@nextui-org/react';
+import { Input, Spacer, Text } from '@nextui-org/react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import { useState } from 'react';
+import { OgpCard } from '../components/domains/Ogp/OgpCard';
 import { useOgp } from '../hooks/Ogp';
 
 const Home: NextPage = () => {
@@ -17,9 +18,13 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
+      <main style={{ width: '500px', margin: '0 auto' }}>
+        <Spacer y={5} />
+        <Text h2>Welcome to Wiscro !</Text>
         <Spacer y={3} />
-        <Input onChange={(e) => setUrl(e.target.value)} placeholder="Next UI" />
+        <Input onChange={(e) => setUrl(e.target.value)} placeholder="Next UI" bordered fullWidth />
+        <Spacer y={1} />
+        {ogp && <OgpCard ogp={ogp} />}
       </main>
     </div>
   );

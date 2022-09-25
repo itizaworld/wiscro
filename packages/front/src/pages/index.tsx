@@ -1,13 +1,13 @@
-import { Input } from '@nextui-org/react';
-import { hoge, User } from '@wiscro/common';
+import { Input, Spacer } from '@nextui-org/react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { useTest } from '../hooks/useTest';
+import { useState } from 'react';
+import { useOgp } from '../hooks/Ogp';
 
 const Home: NextPage = () => {
-  console.log(hoge, new User('hoge'));
-  const { data } = useTest();
-  console.log(data);
+  const [url, setUrl] = useState('');
+  const { data: ogp } = useOgp(url);
+  console.log(ogp, 15);
 
   return (
     <div>
@@ -18,7 +18,8 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
-        <Input placeholder="Next UI" />
+        <Spacer y={3} />
+        <Input onChange={(e) => setUrl(e.target.value)} placeholder="Next UI" />
       </main>
     </div>
   );

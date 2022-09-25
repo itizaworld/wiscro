@@ -1,4 +1,5 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { Ogp } from '@wiscro/common';
 import { IOgpAdapter } from 'src/Infrastructures/Adapters/Ogp';
 
 @Injectable()
@@ -8,7 +9,7 @@ export class FetchOgpUseCase {
    * Ogp を取得する
    * @param url {string} 対象のurl
    */
-  async execute(url: string): Promise<{ [key: string]: string }> {
+  async execute(url: string): Promise<Ogp> {
     try {
       return await this.ogpAdapter.fetch(url);
     } catch (error) {

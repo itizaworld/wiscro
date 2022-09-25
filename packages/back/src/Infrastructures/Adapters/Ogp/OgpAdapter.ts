@@ -1,29 +1,47 @@
 import { IOgpAdapter } from './IOgpAdapter';
 import { JSDOM } from 'jsdom';
 import axios from 'axios';
+import { Ogp } from '@wiscro/common';
 
 export class OgpAdapter implements IOgpAdapter {
-  async fetch(url: string): Promise<Record<string, string>> {
+  async fetch(url: string): Promise<Ogp> {
     const response = await axios.get(url);
     const dom = new JSDOM(response.data);
     const meta = dom.window.document.querySelectorAll('head > meta');
 
-    return (
-      Array.from(meta)
-        //metaタグの内、property属性を持つのがOGP情報である
-        .filter((element) => element.hasAttribute('property'))
-        .reduce((pre: Record<string, string>, ogp) => {
-          const attr = ogp.getAttribute('property');
-          const content = ogp.getAttribute('content');
+    const ogp: Record<string, string> & { url: string } = {
+      url,
+    };
 
-          if (!attr || !content) return pre;
-          const property = attr.trim().replace('og:', '');
+    Array.from(meta)
+      //metaタグの内、property属性を持つのがOGP情報である
+      .filter((element) => element.hasAttribute('property'))
+      .forEach((element) => {
+        const attr = element.getAttribute('property');
+        const content = element.getAttribute('content');
 
-          if (!property) return pre;
+        if (!attr || !content) return;
+        console.log(attr, content);
 
-          pre[property] = content;
-          return pre;
-        }, {})
-    );
+        switch (attr) {
+          case 'og:site_name':
+            ogp.siteName = content;
+            break;
+          case 'og:title':
+            ogp.title = content;
+            break;
+          case 'og:image':
+            ogp.image = content;
+            break;
+          case 'og:description':
+            ogp.description = content;
+            break;
+
+          default:
+            break;
+        }
+      }, {});
+
+    return ogp;
   }
 }

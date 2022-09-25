@@ -12,8 +12,7 @@ FROM node:18 AS runner
 ARG NODE_ENV=development
 ENV NODE_ENV=${NODE_ENV}
 WORKDIR /app
-COPY package.json ./
-COPY yarn.lock ./
+COPY . .
 # NODE_ENV=productionにしてyarn install(npm install)するとdevDependenciesがインストールされません
 RUN yarn install
 CMD ["yarn", "start:back"]

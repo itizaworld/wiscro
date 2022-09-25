@@ -21,7 +21,7 @@ const Home: NextPage = () => {
         <Spacer y={5} />
         <Text h2>Welcome to Wiscro !</Text>
         <Spacer y={3} />
-        <Input onChange={(e) => setUrl(e.target.value)} placeholder="Next UI" bordered fullWidth />
+        <Input onChange={(e) => setUrl(e.target.value)} placeholder="type url..." bordered fullWidth />
         <Spacer y={1} />
         {ogp && <OgpCard ogp={ogp} />}
       </main>

@@ -8,7 +8,6 @@ import { useOgp } from '../hooks/Ogp';
 const Home: NextPage = () => {
   const [url, setUrl] = useState('');
   const { data: ogp } = useOgp(url);
-  console.log(ogp, 15);
 
   return (
     <div>

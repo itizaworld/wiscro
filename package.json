@@ -11,6 +11,12 @@
   ],
   "scripts": {
     "dev": "run-p dev:*",
+
+    "front": "yarn workspace @wiscro/front",
+    "admin": "yarn workspace @wiscro/admin",
+    "back": "yarn workspace @wiscro/back",
+    "common": "yarn workspace @wiscro/common",
+
     "dev:front": "yarn workspace @wiscro/front dev",
     "dev:admin": "yarn workspace @wiscro/admin dev",
     "dev:back": "yarn workspace @wiscro/back start:dev",
